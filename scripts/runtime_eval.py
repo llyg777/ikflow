@@ -24,7 +24,7 @@ def calculate_ave_runtime(ik_solver: IKFlowSolver, n_samples: int):
     sample_times = []
     with torch.inference_mode():
         for i in range(30):
-            pose = np.random.random(7)
+            pose = torch.rand(7) 
             t0 = time()
             ik_solver.generate_ik_solutions(pose, n_samples)
             sample_times.append(time() - t0)
